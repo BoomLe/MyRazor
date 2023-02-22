@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\EFWebRazor\\EFWebRazor.csproj": {}
+    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\EFWebRazor\\EFWebRazor.csproj": {
+    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\EFWebRazor\\EFWebRazor.csproj",
+        "projectUniqueName": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj",
         "projectName": "EFWebRazor",
-        "projectPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\EFWebRazor\\EFWebRazor.csproj",
+        "projectPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj",
         "packagesPath": "C:\\Users\\gomes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\EFWebRazor\\obj\\",
+        "outputPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gomes\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -49,6 +49,12 @@
               "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
             },

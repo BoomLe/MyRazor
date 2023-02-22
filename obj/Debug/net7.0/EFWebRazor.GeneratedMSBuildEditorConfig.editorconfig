@@ -9,37 +9,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EFWebRazor
 build_property.RootNamespace = EFWebRazor
-build_property.ProjectDir = C:\Users\gomes\OneDrive\Máy tính\ASP.NetRazor\Ôn tập 1-10\EFWebRazor\
+build_property.ProjectDir = C:\Users\gomes\OneDrive\Máy tính\ASP.NetRazor\Ôn tập 1-10\baitap\MyRazorBoom\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\gomes\OneDrive\Máy tính\ASP.NetRazor\Ôn tập 1-10\EFWebRazor
+build_property.MSBuildProjectDirectory = C:\Users\gomes\OneDrive\Máy tính\ASP.NetRazor\Ôn tập 1-10\baitap\MyRazorBoom
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/EFWebRazor/Pages/Error.cshtml]
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Blog/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Blog/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Blog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Blog/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/EFWebRazor/Pages/Index.cshtml]
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/EFWebRazor/Pages/Privacy.cshtml]
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/EFWebRazor/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Shared/_PagingBoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9QYWdpbmdCb29tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/EFWebRazor/Pages/_ViewImports.cshtml]
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/EFWebRazor/Pages/_ViewStart.cshtml]
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/EFWebRazor/Pages/Shared/_Layout.cshtml]
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Ôn tập 1-10/baitap/MyRazorBoom/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5zvkuo3r3m

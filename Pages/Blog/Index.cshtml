@@ -1,0 +1,76 @@
+@page
+@model EFWebRazor.Pages_Blog.IndexModel
+
+@{
+    ViewData["Title"] = "Bài Viết";
+    
+    int i = 0;
+}
+
+
+
+<h1>Những Bài Viết</h1>
+
+<form method="get" asp-page="./Index">
+<label>Tìm Kiếm</label>
+<input name="SearchString" value="" />
+<button type="submit">Tìm</button>
+
+</form>
+<p>
+    <a asp-page="Create" class="btn btn-primary">Tạo Bài</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>
+                @Html.DisplayNameFor(model => Model.Article[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.Article[0].Created)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+@* @if(Model.Article != null){ *@
+@foreach (var item in Model.Article) 
+{
+        <tr>
+            <td>@(++i)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+           
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Sửa</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Xem</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+@* } *@
+    </tbody>
+</table>
+
+@{
+    var modelPaging = new Boom.Heplers.PagingModel()
+    {
+        //Trang hiện tại:
+        currentpage = Model.currentPage,
+
+        @* tổng số trang: *@
+        countpages = Model.countPages,
+@* Url.Page("/Blog/Index", new{p = 20}) *@
+        generateUrl = (int? p) => "trang-" + p
+
+    };
+}
+<partial name="_PagingBoom" model="@modelPaging"></partial>
