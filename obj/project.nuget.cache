@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IEiqNEyWxkZK1CXiwiHkALR6DvT8Cq+rT5oBu4tLxfVA2N6ipPlwuG119L46mx03G73/vCwlrup7WcZi4jbDSA==",
+  "dgSpecHash": "sHMJXFkgEisLq3BNBupAdmnNCCUvrd6CHd1h1aR4Wb2t1howraTZwnAEUVic831qNgYjhAbfbVPwJDYoRmWoaw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\EFWebRazor\\EFWebRazor.csproj",
+  "projectFilePath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gomes\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\gomes\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -44,6 +44,7 @@
     "C:\\Users\\gomes\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.3\\microsoft.entityframeworkcore.design.7.0.3.nupkg.sha512",
     "C:\\Users\\gomes\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.3\\microsoft.entityframeworkcore.relational.7.0.3.nupkg.sha512",
     "C:\\Users\\gomes\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.3\\microsoft.entityframeworkcore.sqlserver.7.0.3.nupkg.sha512",
+    "C:\\Users\\gomes\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.3\\microsoft.entityframeworkcore.tools.7.0.3.nupkg.sha512",
     "C:\\Users\\gomes\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\gomes\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\gomes\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

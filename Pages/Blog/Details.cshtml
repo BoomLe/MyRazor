@@ -1,0 +1,20 @@
+@page "/Blog/Xembai/{id:int}/"
+@model EFWebRazor.Pages_Blog.DetailsModel
+
+@{
+    ViewData["Title"] = Model.Article.Title;
+}
+
+<h1>Model.Article.Title</h1>
+<p>@Html.DisplayFor(model => model.Article.Created)</p>
+<hr>
+@Html.Raw(Model.Article.Content)
+@* @Html.DisplayFor(model => model.Article.Content) *@
+<hr>
+
+
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Article?.Id">Chỉnh Sửa</a> |
+    <a asp-page="./Index">Danh sách bài viết</a>
+</div>
