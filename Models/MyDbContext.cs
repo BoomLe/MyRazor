@@ -1,8 +1,9 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFWebRazor.models
 {
-    public class MyDbContext : DbContext
+    public class MyDbContext : IdentityDbContext<MyAppUser>
     {
         public DbSet<Article> articles{set;get;}
 
@@ -19,6 +20,17 @@ namespace EFWebRazor.models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            
+
+            foreach (var TypeEntity in modelBuilder.Model.GetEntityTypes())
+            {
+                var tableName = TypeEntity.GetTableName();
+                if(tableName.StartsWith("AspNet"))
+                {
+                    TypeEntity.SetTableName(tableName.Substring(6));
+                }
+                
+            }
         }
 
         

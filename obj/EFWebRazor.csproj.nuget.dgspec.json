@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj": {}
+    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap2-1\\MyRazor\\EFWebRazor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj": {
+    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap2-1\\MyRazor\\EFWebRazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj",
+        "projectUniqueName": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap2-1\\MyRazor\\EFWebRazor.csproj",
         "projectName": "EFWebRazor",
-        "projectPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\EFWebRazor.csproj",
+        "projectPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap2-1\\MyRazor\\EFWebRazor.csproj",
         "packagesPath": "C:\\Users\\gomes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap\\MyRazorBoom\\obj\\",
+        "outputPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Ôn tập 1-10\\baitap2-1\\MyRazor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gomes\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -42,6 +42,82 @@
               "target": "Package",
               "version": "[34.0.2, )"
             },
+            "IdentityServer4": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
+            "Microsoft.ApplicationInsights.AspNetCore": {
+              "target": "Package",
+              "version": "[2.22.0-beta2, )"
+            },
+            "Microsoft.ApplicationInsights.WorkerService": {
+              "target": "Package",
+              "version": "[2.22.0-beta2, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIDConnect": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Twitter": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.oAuth": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.AspNetCore.Mvc.DataAnnotations": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -58,13 +134,33 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.5.0, )"
             },
             "MySql.Data.EntityFramework": {
               "target": "Package",
               "version": "[8.0.32, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [
