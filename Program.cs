@@ -21,9 +21,9 @@ builder.Services.AddDbContext<MyDbContext>(options=>
     
 });
 
-builder.Services.AddDefaultIdentity<MyAppUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<MyDbContext>();
+builder.Services.AddDefaultIdentity<MyAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+.AddEntityFrameworkStores<MyDbContext>().AddDefaultTokenProviders();
 
-// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<EFWebRazorIdentityDbContext>();
 
 // Add IDentity làm việc trên MyDbcontext
 // builder.Services.AddIdentity<MyAppUser, IdentityRole>()
@@ -69,7 +69,12 @@ builder.Services.Configure<IdentityOptions> (options => {
 builder.Services.AddSingleton<IEmailSender, SendMailService>();
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
 
-
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/login/";
+    options.LogoutPath = "/logout/";
+    options.AccessDeniedPath = "/Khongtruycap.html";
+});
 // Add services to the container.
 builder.Services.AddRazorPages();
 

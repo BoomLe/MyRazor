@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel;
 
 namespace EFWebRazor.Areas.Identity.Pages.Account
 {
@@ -75,8 +76,8 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "vui lòng nhập lại {0}")]
+            [EmailAddress(ErrorMessage ="Địa chỉ {0} không đúng")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -84,10 +85,10 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "vui lòng nhập lại {0}")]
+            [StringLength(100, ErrorMessage = "{0} phải từ {2} đến {1} ký tự.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Mật Khẩu")]
             public string Password { get; set; }
 
             /// <summary>
@@ -95,9 +96,18 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Lặp lại mật khẩu")]
+            [Compare("Password", ErrorMessage = "{0} giống nhau")]
             public string ConfirmPassword { get; set; }
+
+
+
+            [DataType(DataType.Text)]
+            [Required(ErrorMessage = "Vui lòng nhập tên tài khoản")]
+            [DisplayName("Tên Tài Khoản")]
+            [StringLength(20, MinimumLength =6, ErrorMessage ="{0} phải từ {2} đến {1} ký tự")]
+            
+            public string UserName{set;get;}
         }
 
 
@@ -121,7 +131,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("Đã tạo tài khoản mới");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -132,8 +142,8 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "Xác nhận Email",
+                        $"Bạn đang đăng ký tài khoản Razor <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Nhấp vào xác nhận tài khoản</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
