@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core11\\MyRazor\\EFWebRazor.csproj": {}
+    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core 12\\MyRazor\\EFWebRazor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core11\\MyRazor\\EFWebRazor.csproj": {
+    "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core 12\\MyRazor\\EFWebRazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core11\\MyRazor\\EFWebRazor.csproj",
+        "projectUniqueName": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core 12\\MyRazor\\EFWebRazor.csproj",
         "projectName": "EFWebRazor",
-        "projectPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core11\\MyRazor\\EFWebRazor.csproj",
+        "projectPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core 12\\MyRazor\\EFWebRazor.csproj",
         "packagesPath": "C:\\Users\\gomes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core11\\MyRazor\\obj\\",
+        "outputPath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\Core 12\\MyRazor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gomes\\AppData\\Roaming\\NuGet\\NuGet.Config"
