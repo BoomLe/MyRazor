@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel;
 
 namespace EFWebRazor.Areas.Identity.Pages.Account
 {
@@ -23,10 +24,13 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
         private readonly SignInManager<MyAppUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<MyAppUser> signInManager, ILogger<LoginModel> logger)
+        private readonly UserManager<MyAppUser> _userManager;
+
+        public LoginModel(SignInManager<MyAppUser> signInManager, ILogger<LoginModel> logger,UserManager<MyAppUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager= userManager;
         }
 
         /// <summary>
@@ -65,9 +69,11 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
-            public string Email { get; set; }
+            [Required(ErrorMessage = "Phải nhập {0}")]
+            // [EmailAddress]
+            
+            [DisplayName("Địa chỉ Email hoặc Tài Khoản")]
+            public string UserNameOrEmail { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -81,7 +87,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Ghi nhớ tài khoản?")]
             public bool RememberMe { get; set; }
         }
 
@@ -112,7 +118,22 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.UserNameOrEmail, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                
+                //tìm phương thức UserName theo Email, đăng nhập lại
+                // if(!result.Succeeded)
+                // {
+                //     var user = await _userManager.FindByEmailAsync(Input.UserNameOrEmail);
+                //     if( user != null)
+                //     {
+                        
+                //     result = await _signInManager.PasswordSignInAsync(user.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
+
+                //     }
+                // }
+                
+                
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -124,12 +145,12 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("Tài khoản bị khóa");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Tài khoản không tồn tại hoặc sai username, password");
                     return Page();
                 }
             }
