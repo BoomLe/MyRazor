@@ -121,17 +121,17 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.UserNameOrEmail, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 
                 //tìm phương thức UserName theo Email, đăng nhập lại
-                // if(!result.Succeeded)
-                // {
-                //     var user = await _userManager.FindByEmailAsync(Input.UserNameOrEmail);
-                //     if( user != null)
-                //     {
+                if(!result.Succeeded)
+                {
+                    var user = await _userManager.FindByEmailAsync(Input.UserNameOrEmail);
+                    if( user != null)
+                    {
                         
-                //     result = await _signInManager.PasswordSignInAsync(user.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                    result = await _signInManager.PasswordSignInAsync(user.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
 
 
-                //     }
-                // }
+                    }
+                }
                 
                 
                 if (result.Succeeded)

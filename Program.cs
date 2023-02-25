@@ -75,6 +75,15 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = "/logout/";
     options.AccessDeniedPath = "/Khongtruycap.html";
 });
+
+// ADD dịch vụ thứ 3 Google
+// builder.Services.AddAuthentication().AddGoogle(options =>
+// {
+//     var addGoogle = builder.Configuration.GetSection("Authentication:Google");
+//     options.ClientId = addGoogle["ClientId"];
+//     options.ClientSecret = addGoogle["ClientSecret"];
+//     options.CallbackPath ="http://localhost:5221/dang-nhap-tu-google";
+// });
 // Add services to the container.
 builder.Services.AddRazorPages();
 

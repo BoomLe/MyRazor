@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
@@ -12,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using System.ComponentModel;
 
 namespace EFWebRazor.Areas.Identity.Pages.Account
 {
@@ -19,9 +21,12 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
     {
         private readonly UserManager<MyAppUser> _userManager;
 
-        public ResetPasswordModel(UserManager<MyAppUser> userManager)
+        private readonly SignInManager<MyAppUser> _signInManager;
+
+        public ResetPasswordModel(UserManager<MyAppUser> userManager, SignInManager<MyAppUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         /// <summary>
@@ -41,9 +46,12 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required()]
+            // [DisplayName("Nhập Email hoặc tài khoản")]
             [EmailAddress]
             public string Email { get; set; }
+
+            // public string UserNameOrEmail{set;get;}
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -52,6 +60,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+            [DisplayName("Mật khẩu mới")]
             public string Password { get; set; }
 
             /// <summary>
@@ -59,7 +68,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "Lặp lại mật khẩu")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
@@ -76,7 +85,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
         {
             if (code == null)
             {
-                return BadRequest("A code must be supplied for password reset.");
+                return BadRequest("Cung cấp mã code đặt lại mật khẩu.");
             }
             else
             {
@@ -94,8 +103,14 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             {
                 return Page();
             }
+            // _userManager.FindByEmailAsync(Input.Email).FindByLoginAsync(Input.Email);
 
-            var user = await _userManager.FindByEmailAsync(Input.Email);
+            //  var users = new MyAppUser{UserName = Input.UserName, Email = Input.Email};
+
+
+            
+
+            var user = await _userManager.FindByEmailAsync( Input.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
@@ -103,6 +118,14 @@ namespace EFWebRazor.Areas.Identity.Pages.Account
             }
 
             var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
+
+            // if(result.Succeeded)
+            // {
+
+            // }
+
+
+
             if (result.Succeeded)
             {
                 return RedirectToPage("./ResetPasswordConfirmation");
