@@ -1,3 +1,4 @@
+using System.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EFWebRazor.models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EFWebRazor.Pages_Blog
 {
+
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly EFWebRazor.models.MyDbContext _context;
