@@ -1,14 +1,14 @@
 ﻿@page
 @model ExternalLoginsModel
 @{
-    ViewData["Title"] = "Manage your external logins";
+    ViewData["Title"] = "Liên kết quan lý tài khoản";
     ViewData["ActivePage"] = ManageNavPages.ExternalLogins;
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
 @if (Model.CurrentLogins?.Count > 0)
 {
-    <h3>Registered Logins</h3>
+    <h3>Các dịch vụ liên kết</h3>
     <table class="table">
         <tbody>
             @foreach (var login in Model.CurrentLogins)

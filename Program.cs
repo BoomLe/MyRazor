@@ -76,14 +76,43 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Khongtruycap.html";
 });
 
-// ADD dịch vụ thứ 3 Google
-// builder.Services.AddAuthentication().AddGoogle(options =>
+
+//
+// builder.Services.AddAuthentication(options =>
+// {
+//    options.DefaultScheme = "cookies";
+//    options.DefaultChallengeScheme = "oidc";
+// })
+// .AddCookie("cookies", options =>
+// {
+//    options.Cookie.Name = "appcookie";
+//    options.Cookie.SameSite = SameSiteMode.Strict;
+//    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+// })
+// .AddOpenIdConnect("oidc", options =>
+// {
+//    options.NonceCookie.SecurePolicy = CookieSecurePolicy.Always;
+//    options.CorrelationCookie.SecurePolicy = CookieSecurePolicy.Always;
+
+// }).AddGoogle(options =>
 // {
 //     var addGoogle = builder.Configuration.GetSection("Authentication:Google");
 //     options.ClientId = addGoogle["ClientId"];
 //     options.ClientSecret = addGoogle["ClientSecret"];
-//     options.CallbackPath ="http://localhost:5221/dang-nhap-tu-google";
+//     options.CallbackPath ="/dang-nhap-tu-google/";
 // });
+
+//
+// ADD dịch vụ thứ 3 Google
+builder.Services.AddAuthentication().AddGoogle(options =>
+{
+    var addGoogle = builder.Configuration.GetSection("Authentication:Google");
+    options.ClientId = addGoogle["ClientId"];
+    options.ClientSecret = addGoogle["ClientSecret"];
+    options.CallbackPath ="/dang-nhap-tu-google/";
+});
+
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -96,7 +125,12 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+//đây là phương thức Cookies sửa lỗi kết nối Google
+app.UseCookiePolicy(new CookiePolicyOptions()
+{
+    MinimumSameSitePolicy = SameSiteMode.Lax
+});
+//
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
