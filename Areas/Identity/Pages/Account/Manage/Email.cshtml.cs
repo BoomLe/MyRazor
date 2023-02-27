@@ -70,7 +70,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
             /// </summary>
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Email mới")]
             public string NewEmail { get; set; }
         }
 
@@ -126,14 +126,14 @@ namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
                     protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
-                    "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "Xác nhận Email",
+                    $"Làm ơn xác nhận tài khoản <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>nhấp vào đây</a>.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = "Đã gửi thông tin xác thực vui lòng truy cập Email kích hoạt";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "Email không được thay đổi.";
             return RedirectToPage();
         }
 

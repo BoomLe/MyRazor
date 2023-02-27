@@ -1,3 +1,4 @@
+using System.Net;
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
@@ -10,9 +11,13 @@ using EFWebRazor.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
 {
+    // Authorize : xác nhận quyền truy cập
+    // nếu không có tài khoản đúng đăng nhập khi Login vào url sẽ về trang Login(đăng nhập) 
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly UserManager<MyAppUser> _userManager;
@@ -56,9 +61,20 @@ namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Phone]
-            [Display(Name = "Phone number")]
+            [Phone(ErrorMessage ="sai định dạng điện thoại")]
+            [Display(Name = "số điện thoại")]
             public string PhoneNumber { get; set; }
+
+            //
+             [Display(Name = "Địa chỉ")]
+             [StringLength(400)]
+            public string? HomeAddrss{set;get;}
+
+            //
+            [Display(Name = "Ngày sinh ")]
+            [DataType(DataType.Date)]
+             public DateTime? BrithDate{set;get;}
+
         }
 
         private async Task LoadAsync(MyAppUser user)
@@ -70,7 +86,9 @@ namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                HomeAddrss = user.HomeAddrss,
+                BrithDate = user.BrithDate
             };
         }
 
@@ -100,19 +118,26 @@ namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
-                }
-            }
+            // var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            // if (Input.PhoneNumber != phoneNumber)
+            // {
+            //     var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+            //     if (!setPhoneResult.Succeeded)
+            //     {
+            //         StatusMessage = "Unexpected error when trying to set phone number.";
+            //         return RedirectToPage();
+            //     }
+            // }
+
+            //thiết lập update phone, homeadress, Birth:
+            user.HomeAddrss = Input.HomeAddrss;
+            user.PhoneNumber = Input.PhoneNumber;
+            user.BrithDate = Input.BrithDate;
+
+            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Hồ sơ được cập nhật";
             return RedirectToPage();
         }
     }

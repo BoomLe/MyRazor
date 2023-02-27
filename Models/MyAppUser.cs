@@ -12,5 +12,9 @@ namespace EFWebRazor.models
         [StringLength(400)]
         public string? HomeAddrss{set;get;}
 
+
+        [DataType(DataType.Date)]
+        public DateTime? BrithDate{set;get;}
+
     }
 }

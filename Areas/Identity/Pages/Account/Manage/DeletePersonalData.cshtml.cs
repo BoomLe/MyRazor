@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using EFWebRazor.models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,6 +16,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
 {
     public class DeletePersonalDataModel : PageModel
     {
+        
         private readonly UserManager<MyAppUser> _userManager;
         private readonly SignInManager<MyAppUser> _signInManager;
         private readonly ILogger<DeletePersonalDataModel> _logger;
@@ -82,7 +84,7 @@ namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
             {
                 if (!await _userManager.CheckPasswordAsync(user, Input.Password))
                 {
-                    ModelState.AddModelError(string.Empty, "Incorrect password.");
+                    ModelState.AddModelError(string.Empty, "Mật khẩu không đúng.");
                     return Page();
                 }
             }
