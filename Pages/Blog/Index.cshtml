@@ -69,7 +69,7 @@
         @* tổng số trang: *@
         countpages = Model.countPages,
 @* Url.Page("/Blog/Index", new{p = 20}) *@
-        generateUrl = (int? p) => "trang-" + p
+        generateUrl = (int? p) => Url.Page("./Index", new {p =p})
 
     };
 }

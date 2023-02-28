@@ -7,22 +7,26 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using EFWebRazor.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-
+using App.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add DBcontext Connecting to SQL MyBlogContext
 
-builder.Services.AddDbContext<MyDbContext>(options=>
+builder.Services.AddEntityFrameworkSqlServer().AddDbContext<MyDbContext>(options=>
 {
     var stringConnecting = builder.Configuration.GetConnectionString("MyDbContext");
     options.UseSqlServer(stringConnecting);
     
 });
 
+// builder.Services.AddEntityFrameworkSqlServer();
+
 builder.Services.AddDefaultIdentity<MyAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
-.AddEntityFrameworkStores<MyDbContext>().AddDefaultTokenProviders();
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<MyDbContext>()
+.AddDefaultTokenProviders();
 
 
 // Add IDentity làm việc trên MyDbcontext
@@ -112,6 +116,7 @@ builder.Services.AddAuthentication().AddGoogle(options =>
     options.CallbackPath ="/dang-nhap-tu-google/";
 });
 
+builder.Services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -143,9 +148,38 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+/*
+CREATE, READ, UPDATE, DELETE (CURD)
+ => dotnet aspnet-codegenerator razorpage-m EFWebRazor.models.Article -dc EFWebRazor.models.MyDbContext
 
-//Identity:
 
-//  dotnet aspnet-codegenerator identity -dc EFWebRazor.models.MyDbContext
+Identity:
+   - Authentication: Xác định danh tính -> Login, logout ...
+   
+   -Authorization: Xác thực quyền truy cập
+    Role-based authoorization - xác thực quyền theo vai trò
+      -Role (vai trò cấp quyền) :
+        * Tạo Role:
+            -> Index (hiện thị danh sách  quản lý)
+            ->Created (cung cấp chức năng tạo ra Role)
+            -> Edit (chỉnh sửa quyền hành Roles)
+            -> Delete (cấp quyền Roles)
+              => tạo file Role trong thư mục /Areas/Admin/Pages/Role
+              => lệnh tạo file Role:
+                 -> dotnet new page -n Index -o Areas/Admin/Pages/Role -p:n App.Admin.Roles
+                 -> dotnet new page -n Created -o Areas/Admin/Pages/Role -p:n App.Admin.Roles
 
-// dotnet aspnet-codegenerator identity -dc ef
+                 [Authorize] - Controller, Action, PageModel --> Đăng nhập
+
+
+
+
+    - Quản lý user : Sign Up, User, Role ...
+    
+
+/Identity/Account/Login
+/Identity/Account/Manage
+=> dotnet aspnet-codegenerator identity -dc EFWebRazor.models.MyDbContext
+
+*/
+//Download LibMan => tìm thư viên Multiple-select trên https://cdnjs.com/

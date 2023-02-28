@@ -1,0 +1,43 @@
+﻿@page "/admin/set-member-AddRole/{id}"
+@model App.Admin.User.AddRoleModel
+@{
+    ViewData["Title"] = "Thiết lập gán Role";
+    
+}
+
+<h3>Thiết lâp Role : @Model.user.UserName</h3>
+<partial name="_StatusMessage" for="@Model.StatusMessage"></partial>
+
+<div class="row">
+    <div class="col-md-6">
+        <form id="set-password-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoleName"></label>
+              @Html.ListBoxFor(m => m.RoleName, @Model.allRoles, new
+              {
+                @* @class = "form-control", *@
+                id = "SelectRole",
+                @class = "w-100"
+              })
+                    <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+         
+            <button type="submit" class="w-30 btn btn-lg btn-primary">Cập nhật</button>
+            <a asp-page="./Index" class="w-30 btn btn-lg btn-primary">Danh sách thành viên</a>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script src = "~/lib/multiple-select/multiple-select.min.js"> </script>
+
+    <link rel="stylesheet" href="~/lib/multiple-select/multiple-select.min.css">
+    <script>
+        $("#SelectRole").multipleSelect({selectAll : false,
+        isOpen: false,
+        keepOpen : false,
+        });
+
+    </script>
+    <partial name="_ValidationScriptsPartial" />
+}
