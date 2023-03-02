@@ -1,4 +1,5 @@
 
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +9,9 @@ using EFWebRazor.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using App.Services;
+using App.Sercurity;
+using App.Sercurity.Requirement;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +74,7 @@ builder.Services.Configure<IdentityOptions> (options => {
 //Add thư viện MailSetiing làm việc nhớ cài Maikit và Mimekit
 // builder.Configuration.GetSection("MailSetting");
 // builder.Services.Configure<MailSettings>((builder.Configuration.GetSection("MailSetting")));
+
 builder.Services.AddSingleton<IEmailSender, SendMailService>();
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
 
@@ -118,6 +123,10 @@ builder.Services.AddAuthentication().AddGoogle(options =>
 
 builder.Services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
 
+
+
+//ADD
+// builder.Services.AddScoped<AuthenticationStateProvier, ServerAuthenticationStateProvider>();
 //ADD Policy Role => để thỏa mảng điều kiện đăng nhập vào website(cấp quyền truy cập User):
 builder.Services.AddAuthorization( options=>
 {
@@ -128,7 +137,33 @@ builder.Services.AddAuthorization( options=>
         // PolicyBuilder.RequireRole("Editor");
         PolicyBuilder.RequireClaim("Members ", " abc");
     });
+
+    options.AddPolicy("IsGenz", PolicyBuilder =>
+    {
+        PolicyBuilder.RequireAuthenticatedUser();
+        PolicyBuilder.Requirements.Add(new GeZRequirement());
+    });
+
+     options.AddPolicy("ShowAdminMenu", PolicyBuilder =>
+     {
+        // PolicyBuilder.RequireAuthenticatedUser();
+        PolicyBuilder.RequireRole("Admin");
+
+     });
+
+     options.AddPolicy("Cantupdate", PolicyBuilder =>
+    {
+        
+        PolicyBuilder.Requirements.Add(new ArticleCantupdate());
+    });
 });
+
+// ADD dịch vụ IAuthorizationHandler cho thư mục Sercurity.Requirements
+builder.Services.AddTransient<IAuthorizationHandler, AppAuthorizationHandler>();
+
+
+
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();

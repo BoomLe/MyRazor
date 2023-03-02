@@ -1,0 +1,32 @@
+
+@using EFWebRazor.models
+
+@using Microsoft.AspNetCore.Authorization
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService authorizationService
+@* @attribute [Authorize(Policy = "ShowAdmin")] *@
+
+
+@{
+    var resultauthorize = await authorizationService.AuthorizeAsync(this.User, "ShowAdminMenu");
+}
+
+@if (resultauthorize.Succeeded)
+{
+    <li class="nav-item dropdown">
+        
+         <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#"  
+            data-toggle="dropdown" >
+            Manager
+        </a>
+        
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" asp-page="/Role/Index" asp-area="Admin" >Quản lý Role</a>
+
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item"   asp-page="/User/Index" asp-area="Admin">Quản lý User</a>
+      
+            </div>
+      
+    </li>
+}

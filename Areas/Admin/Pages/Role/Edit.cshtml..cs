@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Admin.Roles
 {
-    [Authorize(Policy = "AllowEditRole")]
+    // [Authorize(Policy = "AllowEditRole")]
     public class EditdModel : RolePageModel
     {
         public EditdModel(RoleManager<IdentityRole> roleManager, MyDbContext mydbcontext) : base(roleManager, mydbcontext)

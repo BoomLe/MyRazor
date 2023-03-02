@@ -1,0 +1,57 @@
+
+@using EFWebRazor.models
+
+@using Microsoft.AspNetCore.Authorization
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService authorizationService
+@* @attribute [Authorize(Policy = "ShowAdmin")] *@
+
+@* code Javascrip thi hành nút bấm dropdown  *@
+@section myclass{
+     <script>
+    let even = 'block';
+  let odd = 'none';
+  let elements = document.getElementsByClassName("dropdown-menu")
+
+  Array.prototype.forEach.call(elements, function(element) {
+    element.style.display === even ? element.style.display = odd : element.style.display = even
+  });</script>
+}
+
+
+
+@* code C# của phương thức Authorizations *@
+@{
+    var resultauthorize = await authorizationService.AuthorizeAsync(this.User, "ShowAdminMenu");
+}
+@if (resultauthorize.Succeeded)
+{
+   
+  <form>
+    
+       <div class=" nav-item dropdown">
+        
+        <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#"  onclick="myclass()" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="true">
+                        Manager
+                      </a>
+
+
+         @* <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#"  
+            data-toggle="dropdown" >
+            Manager
+        </a> *@
+        
+            <div class=" dropdown-menu ">
+                <a class="dropdown-item" asp-page="/Role/Index" asp-area="Admin" >Quản lý Role</a>
+
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item"   asp-page="/User/Index" asp-area="Admin">Quản lý User</a>
+      
+            </div>
+      
+    
+    </div>
+  </form>
+
+   
+}
