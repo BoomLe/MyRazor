@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFWebRazor.models
+namespace App.models
 {
-    public class MyDbContext : IdentityDbContext<MyAppUser>
+    public class AppDbContext : IdentityDbContext<MyAppUser>
     {
         public DbSet<Article> articles{set;get;}
 
-        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             //
         }

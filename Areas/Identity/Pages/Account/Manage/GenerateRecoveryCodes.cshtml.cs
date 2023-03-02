@@ -5,13 +5,13 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
+namespace App.Areas.Identity.Pages.Account.Manage
 {
     public class GenerateRecoveryCodesModel : PageModel
     {

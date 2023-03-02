@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Bogus;
-using EFWebRazor.models;
+using App.models;
 
 #nullable disable
 
-namespace EFWebRazor.Migrations
+namespace App.Migrations
 {
     /// <inheritdoc />
     public partial class Db : Migration

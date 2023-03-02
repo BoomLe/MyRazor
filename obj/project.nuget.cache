@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w33jmYrG1PQElT4IepwVOMDvNiHfNl0G8G6m2FV7MFApIvRygIYAgQ75KjS3d8UCXZPkytyfhpPnuRYzP+5duw==",
+  "dgSpecHash": "+ipIphTjhbfud9PMClE2ZazKInID9xT130Y+KOnPjG8RyThVncJ82QblFe/8trE5xUO1xOJizatDiN6SS7gq0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NetRazor\\core18\\MyRazor\\EFWebRazor.csproj",
+  "projectFilePath": "C:\\Users\\gomes\\OneDrive\\Máy tính\\ASP.NET Core MVC\\core1\\MyRazor\\EFWebRazor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gomes\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\gomes\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

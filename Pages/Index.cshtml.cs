@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using EFWebRazor.models;
-namespace EFWebRazor.Pages;
+using App.models;
+namespace App.Pages;
 
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    private readonly MyDbContext mydbContext;
+    private readonly AppDbContext mydbContext;
 
-    public IndexModel(ILogger<IndexModel> logger,MyDbContext _mydbContext)
+    public IndexModel(ILogger<IndexModel> logger,AppDbContext _mydbContext)
     {
         _logger = logger;
         mydbContext = _mydbContext;

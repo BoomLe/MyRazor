@@ -7,7 +7,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -25,13 +25,13 @@ namespace App.Admin.User
 
         private readonly RoleManager<IdentityRole> _identityRole;
 
-        private readonly MyDbContext _myDbContext;
+        private readonly AppDbContext _myDbContext;
       
         public AddRoleModel(
             UserManager<MyAppUser> userManager,
             SignInManager<MyAppUser> signInManager,
             RoleManager<IdentityRole> identityRole,
-            MyDbContext myDbContext)
+            AppDbContext myDbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;

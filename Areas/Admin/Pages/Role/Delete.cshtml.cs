@@ -1,7 +1,7 @@
 using System.Reflection.Metadata.Ecma335;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,7 +10,7 @@ namespace App.Admin.Roles
 {
     public class DeleteModel : RolePageModel
     {
-        public DeleteModel(RoleManager<IdentityRole> roleManager, MyDbContext mydbcontext) : base(roleManager, mydbcontext)
+        public DeleteModel(RoleManager<IdentityRole> roleManager, AppDbContext mydbcontext) : base(roleManager, mydbcontext)
         {
         }
 

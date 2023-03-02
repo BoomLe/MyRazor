@@ -5,7 +5,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using App.Services;
@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add DBcontext Connecting to SQL MyBlogContext
 
-builder.Services.AddEntityFrameworkSqlServer().AddDbContext<MyDbContext>(options=>
+builder.Services.AddEntityFrameworkSqlServer().AddDbContext<AppDbContext>(options=>
 {
     var stringConnecting = builder.Configuration.GetConnectionString("MyDbContext");
     options.UseSqlServer(stringConnecting);
@@ -29,7 +29,7 @@ builder.Services.AddEntityFrameworkSqlServer().AddDbContext<MyDbContext>(options
 
 builder.Services.AddDefaultIdentity<MyAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
 .AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<MyDbContext>()
+.AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
 

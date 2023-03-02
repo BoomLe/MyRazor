@@ -4,7 +4,7 @@ using System.Net;
 using System.Reflection.Metadata.Ecma335;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,7 +16,7 @@ namespace App.Admin.Roles
     // [Authorize(Policy = "AllowEditRole")]
     public class EditdModel : RolePageModel
     {
-        public EditdModel(RoleManager<IdentityRole> roleManager, MyDbContext mydbcontext) : base(roleManager, mydbcontext)
+        public EditdModel(RoleManager<IdentityRole> roleManager, AppDbContext mydbcontext) : base(roleManager, mydbcontext)
         {
         }
 

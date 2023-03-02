@@ -1,7 +1,7 @@
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
@@ -12,10 +12,10 @@ namespace App.Admin.User
     public class EditUserClaimModel : PageModel
     {
 
-        private readonly MyDbContext _myDbContext;
+        private readonly AppDbContext _myDbContext;
         private readonly UserManager<MyAppUser> _userManager;
 
-        public EditUserClaimModel(MyDbContext myDbContext,UserManager<MyAppUser> userManager)
+        public EditUserClaimModel(AppDbContext myDbContext,UserManager<MyAppUser> userManager)
         {
             _myDbContext = myDbContext;
             _userManager = userManager;

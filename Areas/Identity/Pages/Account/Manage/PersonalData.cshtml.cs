@@ -2,14 +2,14 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 using System;
 using System.Threading.Tasks;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
+namespace App.Areas.Identity.Pages.Account.Manage
 {
     [Authorize]
     public class PersonalDataModel : PageModel

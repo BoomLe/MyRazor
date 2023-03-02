@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -17,7 +17,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 
-namespace EFWebRazor.Areas.Identity.Pages.Account
+namespace App.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {

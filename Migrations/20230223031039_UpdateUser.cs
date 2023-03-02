@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace EFWebRazor.Migrations
+namespace App.Migrations
 {
     /// <inheritdoc />
     public partial class UpdateUser : Migration

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using System.Security.Claims;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 

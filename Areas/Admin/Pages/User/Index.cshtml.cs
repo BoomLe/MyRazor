@@ -1,5 +1,5 @@
 using System.Linq;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.RazorPages;

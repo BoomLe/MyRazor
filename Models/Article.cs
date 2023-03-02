@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFWebRazor.models
+namespace App.models
 {
     public class Article
     {

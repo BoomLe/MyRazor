@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace EFWebRazor.Areas.Identity.Pages.Account
+namespace App.Areas.Identity.Pages.Account
 {
     public class LoginWith2faModel : PageModel
     {

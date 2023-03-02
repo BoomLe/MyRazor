@@ -13,7 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +22,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 
-namespace EFWebRazor.Areas.Identity.Pages.Account
+namespace App.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {

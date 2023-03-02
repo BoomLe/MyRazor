@@ -5,7 +5,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

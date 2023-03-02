@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.DataAnnotations;
 
 using Microsoft.AspNetCore.Identity;
 
-namespace EFWebRazor.models
+namespace App.models
  {
     public class MyAppUser : IdentityUser
     {

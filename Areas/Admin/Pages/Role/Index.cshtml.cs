@@ -1,6 +1,6 @@
 using System.Security.Claims;
 using System.Collections.Generic;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,7 +11,7 @@ namespace App.Admin.Roles
     // [Authorize(Roles ="Admin")]
     public class IndexModel : RolePageModel
     {
-        public IndexModel(RoleManager<IdentityRole> roleManager, MyDbContext mydbcontext) : base(roleManager, mydbcontext)
+        public IndexModel(RoleManager<IdentityRole> roleManager, AppDbContext mydbcontext) : base(roleManager, mydbcontext)
         {
         }
 

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace EFWebRazor.Pages_Blog
+namespace App.Pages_Blog
 {
 
     [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly EFWebRazor.models.MyDbContext _context;
+        private readonly App.models.AppDbContext _context;
           // tổng số bài viết trên 1 trang:
         public const int ITEMS_PER_PAGE = 10;
 
@@ -24,7 +24,7 @@ namespace EFWebRazor.Pages_Blog
 
         public int countPages{set;get;}
 
-        public IndexModel(EFWebRazor.models.MyDbContext context)
+        public IndexModel(App.models.AppDbContext context)
         {
             _context = context;
         }

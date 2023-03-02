@@ -7,13 +7,13 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using EFWebRazor.models;
+using App.models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 
-namespace EFWebRazor.Areas.Identity.Pages.Account.Manage
+namespace App.Areas.Identity.Pages.Account.Manage
 {
     // Authorize : xác nhận quyền truy cập
     // nếu không có tài khoản đúng đăng nhập khi Login vào url sẽ về trang Login(đăng nhập) 
