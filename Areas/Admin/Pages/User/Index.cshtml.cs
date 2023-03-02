@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace App.Admin.User
 {
-    [Authorize]
+    // [Authorize]
     public class IndexModel : PageModel
     {
        

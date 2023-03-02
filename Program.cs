@@ -118,6 +118,18 @@ builder.Services.AddAuthentication().AddGoogle(options =>
 
 builder.Services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
 
+//ADD Policy Role => để thỏa mảng điều kiện đăng nhập vào website(cấp quyền truy cập User):
+builder.Services.AddAuthorization( options=>
+{
+    options.AddPolicy("AllowEditRole", PolicyBuilder => 
+    {
+        PolicyBuilder.RequireAuthenticatedUser();
+        // PolicyBuilder.RequireRole("Admin");
+        // PolicyBuilder.RequireRole("Editor");
+        PolicyBuilder.RequireClaim("Members ", " abc");
+    });
+});
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -157,7 +169,7 @@ Identity:
    - Authentication: Xác định danh tính -> Login, logout ...
    
    -Authorization: Xác thực quyền truy cập
-    Role-based authoorization - xác thực quyền theo vai trò
+    *Role-based authorization - xác thực quyền theo vai trò
       -Role (vai trò cấp quyền) :
         * Tạo Role:
             -> Index (hiện thị danh sách  quản lý)
@@ -168,8 +180,17 @@ Identity:
               => lệnh tạo file Role:
                  -> dotnet new page -n Index -o Areas/Admin/Pages/Role -p:n App.Admin.Roles
                  -> dotnet new page -n Created -o Areas/Admin/Pages/Role -p:n App.Admin.Roles
+                 -> dotnet new page -n EditUserClaim -o Areas/Admin/Pages/User -p:n App.Admin.User
 
+    
                  [Authorize] - Controller, Action, PageModel --> Đăng nhập
+    *Policy-based authorization
+    *Claims-based authorization   : Claims => Đặc tính , tính chất dối tượng(user)
+    ví dụ :
+    - bạn có bằng lái B2(Role) => tức là bạn lái xe 4 bánh  
+    - trong bằng lái có Năm sinh, quê quán
+    - thì những thông tin trong bằng lái B2 là Claims
+    - từ đó bạn lấy bằng lái B2 đi mua rượu hoặc chất kích thích thỏa mã điều kiện đủ 18 tuổi.
 
 
 

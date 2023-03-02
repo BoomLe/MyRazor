@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\gomes\OneDrive\Máy tính\ASP.NetRazor\Core16\MyRazor
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/Role/AddRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxBZGRSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/Role/Created.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxDcmVhdGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -26,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/Role/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/Role/EditRoleClaim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUm9sZVxFZGl0Um9sZUNsYWltLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/Role/Index.cshtml]
@@ -46,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/User/AddRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxBZGRSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/User/EditUserClaim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlclxFZGl0VXNlckNsYWltLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gomes/OneDrive/Máy tính/ASP.NetRazor/Core16/MyRazor/Areas/Admin/Pages/User/Index.cshtml]

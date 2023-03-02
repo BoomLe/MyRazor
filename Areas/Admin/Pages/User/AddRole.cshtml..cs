@@ -17,7 +17,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Admin.User
 {
-    [Authorize]
+    // [Authorize]
     public class AddRoleModel : PageModel
     {
         private readonly UserManager<MyAppUser> _userManager;
@@ -25,14 +25,18 @@ namespace App.Admin.User
 
         private readonly RoleManager<IdentityRole> _identityRole;
 
+        private readonly MyDbContext _myDbContext;
+      
         public AddRoleModel(
             UserManager<MyAppUser> userManager,
             SignInManager<MyAppUser> signInManager,
-            RoleManager<IdentityRole> identityRole)
+            RoleManager<IdentityRole> identityRole,
+            MyDbContext myDbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _identityRole = identityRole;
+            _myDbContext = myDbContext;
         }
 
         /// <summary>
@@ -59,6 +63,10 @@ namespace App.Admin.User
         public string[] RoleName{set;get;}
 
         public SelectList allRoles{set;get;} 
+        public List<IdentityRoleClaim<string>> ClaimInRole{set;get;}
+
+        public List<IdentityUserClaim<string>> ClamInUser{set;get;}
+
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -80,9 +88,28 @@ namespace App.Admin.User
             List<string> roleName =  await _identityRole.Roles.Select(x => x.Name).ToListAsync();
            allRoles = new SelectList(roleName);
 
+          await GetClaims(id);
+
            
 
             return Page();
+        }
+
+         async Task GetClaims(string id)
+        {
+             var listRole = from r in _myDbContext.Roles
+           join ur in _myDbContext.UserRoles on r.Id equals ur.RoleId
+           where ur.UserId == id
+           select r;
+
+           var _ClaimInRole = from c in _myDbContext.RoleClaims
+           join r in listRole on c.RoleId equals r.Id
+           select c;
+
+           ClaimInRole = await _ClaimInRole.ToListAsync();
+
+          ClamInUser = await (from r in _myDbContext.UserClaims where r.UserId == id
+           select r).ToListAsync();
         }
 
         public async Task<IActionResult> OnPostAsync(string id)
@@ -96,8 +123,14 @@ namespace App.Admin.User
             if (user == null)
             {
                 return NotFound($" Không tìm thấy User , id = {id}.");
-            }
             
+            }
+
+                      await GetClaims(id);
+
+            
+
+
             var oldRoleName = (await _userManager.GetRolesAsync(user)).ToArray();
             var deleteRole = oldRoleName.Where(r => !RoleName.Contains(r));
             var addRole = RoleName.Where(r => !oldRoleName.Contains(r) );
